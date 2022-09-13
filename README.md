@@ -15,5 +15,5 @@ This file `terraform.tfvars` should sit next to the `main.tf` file.
 
 rancher_url       = "enter-your-rancher-url-here"
 rancher_token_key = "enter-your-admin-token-here"
-role_count       = 1100
+role_count        = 1100
 ```

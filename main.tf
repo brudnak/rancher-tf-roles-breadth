@@ -14,22 +14,22 @@ provider "rancher2" {
 }
 
 data "rancher2_role_template" "role_list" {
-  count = var.role_count
-  name = "foo-${count.index+1}"
+  count      = var.role_count
+  name       = "foo-${count.index + 1}"
   depends_on = [rancher2_role_template.foo]
 }
 
 # Create a new rancher2 cluster Role Template
 resource "rancher2_role_template" "foo" {
-  count = var.role_count
-  name = "foo-${count.index+1}"
-  context = "cluster"
+  count        = var.role_count
+  name         = "foo-${count.index + 1}"
+  context      = "cluster"
   default_role = true
-  description = "Terraform role template acceptance test"
+  description  = "Terraform role template acceptance test"
   rules {
     api_groups = ["*"]
-    resources = ["secrets"]
-    verbs = ["create"]
+    resources  = ["secrets"]
+    verbs      = ["create"]
   }
 }
 
@@ -39,16 +39,16 @@ locals {
 
 # Create a new rancher2 cluster Role Template
 resource "rancher2_role_template" "bar" {
-  name = "bar"
-  context = "cluster"
+  name         = "bar"
+  context      = "cluster"
   default_role = true
-  description = "Terraform role template acceptance test"
+  description  = "Terraform role template acceptance test"
   rules {
     api_groups = ["*"]
-    resources = ["secrets"]
-    verbs = ["create"]
+    resources  = ["secrets"]
+    verbs      = ["create"]
   }
-    role_template_ids = local.dadfish
+  role_template_ids = local.dadfish
 }
 
 # Variable section
@@ -68,107 +68,3 @@ variable "role_count" {
   type        = number
   description = "Amount of roles that you would like to create within Rancher."
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
